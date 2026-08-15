@@ -11,9 +11,27 @@ import commentRoutes from "./routes/comment.routes.js";
 import { notFound, errorHandler } from "./middleware/error.js";
 
 const app = express();
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  process.env.CLIENT_URL,
+  "https://movie-review-main-production.up.railway.app",
+].filter(Boolean);
 
 app.use(helmet());
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: false }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(rateLimit({ windowMs: 60_000, limit: 200 }));
