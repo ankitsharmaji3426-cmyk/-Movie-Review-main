@@ -16,6 +16,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   process.env.CLIENT_URL,
   "https://movie-review-main-production.up.railway.app",
+  "https://movie-review-main-psi.vercel.app",
 ].filter(Boolean);
 
 app.use(helmet());
