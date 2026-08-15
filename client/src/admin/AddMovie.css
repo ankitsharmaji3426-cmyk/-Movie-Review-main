@@ -1,0 +1,90 @@
+/* Container for the page */
+.admin-page {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 25px 30px;
+  background: #1e1e2f; /* dark admin feel */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  color: #f0f0f0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.admin-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffcc00;
+  letter-spacing: 1px;
+}
+
+/* Error message */
+.error {
+  background: #ff4444;
+  color: #fff;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Form styling */
+.movie-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Inputs */
+.movie-form input {
+  padding: 12px 14px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #2a2a3d;
+  color: #f0f0f0;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.movie-form input:focus {
+  border-color: #ffcc00;
+  background: #33334d;
+}
+
+/* Button */
+.movie-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #ffcc00;
+  color: #1e1e2f;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.1s ease;
+}
+
+.movie-form button:hover:not(:disabled) {
+  background: #ffdb4d;
+  transform: translateY(-2px);
+}
+
+.movie-form button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .admin-page {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .admin-page h2 {
+    font-size: 22px;
+  }
+}

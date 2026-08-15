@@ -1,0 +1,204 @@
+.landing {
+  position: relative;
+  min-height: calc(100dvh - 56px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+      60% 60% at 50% 40%,
+      rgba(106, 227, 255, 0.25),
+      transparent
+    ),
+    radial-gradient(50% 50% at 70% 70%, rgba(155, 255, 138, 0.2), transparent);
+  filter: blur(40px);
+  animation: float 8s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+.title {
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -2px;
+}
+
+.title span {
+  color: var(--brand);
+  text-shadow: 0 0 24px rgba(106, 227, 255, 0.4);
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.floating-cards {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  gap: 12px;
+}
+
+.floating-cards .card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  border-radius: 10px;
+  animation: bob 4s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* Background image strips */
+.image-strips {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 0; /* Behind content */
+  overflow: hidden;
+}
+
+.strip {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.strip img {
+  width: 200px; /* strip width */
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Animation: up & down */
+.strip1 {
+  animation: moveUp 12s linear infinite;
+}
+.strip2 {
+  animation: moveDown 12s linear infinite;
+}
+.strip3 {
+  animation: moveUp 12s linear infinite;
+}
+
+/* Moving up */
+@keyframes moveUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+/* Moving down */
+@keyframes moveDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+/* Make sure text/buttons stay on top */
+.landing > *:not(.image-strips) {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Extra strips layout */
+.image-strips {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.strip {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.strip img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: brightness(0.8) contrast(1.1); /* slightly dim for better visibility */
+}
+
+/* Animations */
+.strip1 { animation: moveUp 14s linear infinite; }
+.strip2 { animation: moveDown 14s linear infinite; }
+.strip3 { animation: moveUp 16s linear infinite; }
+.strip4 { animation: moveDown 16s linear infinite; }
+
+/* Moving up */
+@keyframes moveUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+/* Moving down */
+@keyframes moveDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+/* Blur overlay */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* dark screen */
+  backdrop-filter: blur(4px); /* smooth blur effect */
+  z-index: 1; /* above strips, below text */
+}
+
+/* Keep text/buttons on top */
+.landing > *:not(.image-strips) {
+  position: relative;
+  z-index: 2;
+}
+
+.tilt-title {
+  display: inline-block;
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.tilt-title span {
+  color: var(--brand);
+  text-shadow: 0 0 24px rgba(106, 227, 255, 0.4);
+}
+.btn-outline{
+    background-color: rgb(229, 68, 50);
+}
+.btn-outline:hover{
+    background-color: rgb(255, 129, 115);
+}

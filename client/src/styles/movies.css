@@ -1,0 +1,132 @@
+.movies-page{
+  display: flex;
+  max-width: 1300px;
+  margin: 18px auto;
+  padding: 0 16px;
+  gap: 24px;
+}
+.side{
+  width: 250px;
+  flex-shrink: 0;
+  height: fit-content;
+  position: sticky;  
+  top: 20px;          
+  align-self: flex-start;
+}
+
+.main{
+    flex: 1;
+}
+
+.info{
+  text-align: center;
+}
+
+.genres{
+  padding-top: 10px;
+}
+/* Overall layout: sidebar on the left, content on the right */
+.main-layout {
+  display: flex;
+  max-width: 1300px;
+  margin: 18px auto;
+  padding: 0 16px;
+  gap: 24px;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  height: fit-content;
+}
+
+/* Sidebar links or buttons */
+.sidebar a {
+  display: block;
+  padding: 10px 12px;
+  color: var(--text);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Main content area (search + grid) */
+.content {
+  flex: 1;
+}
+
+/* Search bar styles */
+.search {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.search input {
+  background: #101625;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+/* Movie grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* Movie card */
+.movie-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
+}
+
+.movie-card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.movie-card .info {
+  padding: 10px;
+}
+
+.year {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.badge {
+  display: inline-block;
+  background: #0f1a2b;
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.badge.big {
+  font-size: 22px;
+  padding: 6px 12px;
+}
