@@ -47,7 +47,30 @@ app.use(errorHandler);
 
 const start = async () => {
   await connectDB(process.env.MONGO_URI);
-  const port = process.env.PORT || 5000;
-  app.listen(port, () => console.log(`🚀 API on http://localhost:${port}`));
+
+  const basePort = Number(process.env.PORT) || 5000;
+
+  const listenOnPort = (port) => {
+    const server = app.listen(port, () => {
+      console.log(`🚀 API on http://localhost:${port}`);
+    });
+
+    server.on("error", (error) => {
+      if (error.code === "EADDRINUSE") {
+        const nextPort = port + 1;
+        console.warn(
+          `⚠️ Port ${port} is already in use. Trying ${nextPort} instead...`
+        );
+        listenOnPort(nextPort);
+        return;
+      }
+
+      console.error("❌ Server failed to start:", error);
+      process.exit(1);
+    });
+  };
+
+  listenOnPort(basePort);
 };
+
 start();
